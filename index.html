@@ -1,4 +1,5 @@
 <!doctype html>
+
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
@@ -21,63 +22,118 @@
           <h1>Lista de Tarefas</h1>
         </div>
 
-        <button
-          id="theme-toggle"
-          class="theme-toggle"
-          type="button"
-          aria-label="Ativar modo escuro"
+```
+    <button
+      id="theme-toggle"
+      class="theme-toggle"
+      type="button"
+      aria-label="Ativar modo escuro"
+      aria-pressed="false"
+    >
+      <span aria-hidden="true">🌙</span>
+      <span>Modo escuro</span>
+    </button>
+  </div>
+</header>
+
+<main class="container">
+  <section class="task-section" aria-labelledby="task-title">
+    <h2 id="task-title">Minhas tarefas</h2>
+
+    <form id="task-form" class="task-form">
+      <label for="task-input">Nova tarefa</label>
+
+      <div class="input-group">
+        <input
+          id="task-input"
+          name="task"
+          type="text"
+          placeholder="Digite uma tarefa..."
+          autocomplete="off"
+          maxlength="100"
+          required
+        />
+
+        <button type="submit">Adicionar tarefa</button>
+      </div>
+    </form>
+
+    <div class="task-list-container">
+      <div class="task-list-header">
+        <h3>Tarefas</h3>
+        <span id="task-count" aria-live="polite">0 tarefas</span>
+      </div>
+
+      <div class="task-actions" aria-label="Ações das tarefas">
+        <div
+          id="task-filters"
+          class="task-filters"
+          role="group"
+          aria-label="Filtrar tarefas"
         >
-          🌙
-          <span>Modo escuro</span>
+          <button
+            class="filter-button active"
+            type="button"
+            data-filter="all"
+            aria-pressed="true"
+          >
+            Todas
+          </button>
+
+          <button
+            class="filter-button"
+            type="button"
+            data-filter="pending"
+            aria-pressed="false"
+          >
+            Pendentes
+          </button>
+
+          <button
+            class="filter-button"
+            type="button"
+            data-filter="completed"
+            aria-pressed="false"
+          >
+            Concluídas
+          </button>
+        </div>
+
+        <button
+          id="clear-completed"
+          class="clear-completed"
+          type="button"
+          hidden
+        >
+          Excluir concluídas
         </button>
       </div>
-    </header>
 
-    <main class="container">
-      <section class="task-section" aria-labelledby="task-title">
-        <h2 id="task-title">Minhas tarefas</h2>
+      <ul
+        id="task-list"
+        class="task-list"
+        aria-label="Lista de tarefas"
+      ></ul>
 
-        <form id="task-form" class="task-form">
-          <label for="task-input">Nova tarefa</label>
+      <p
+        id="empty-message"
+        class="empty-message"
+        role="status"
+      >
+        Nenhuma tarefa adicionada ainda.
+      </p>
+    </div>
+  </section>
+</main>
 
-          <div class="input-group">
-            <input
-              id="task-input"
-              name="task"
-              type="text"
-              placeholder="Digite uma tarefa..."
-              autocomplete="off"
-              maxlength="100"
-              required
-            />
+<footer class="site-footer">
+  <div class="container">
+    <p>Projeto Lista de Tarefas</p>
+  </div>
+</footer>
 
-            <button type="submit">Adicionar tarefa</button>
-          </div>
-        </form>
+<script type="module" src="/src/main.js"></script>
+```
 
-        <div class="task-list-container">
-          <div class="task-list-header">
-            <h3>Tarefas</h3>
-            <span id="task-count" aria-live="polite">0 tarefas</span>
-          </div>
-
-          <ul id="task-list" class="task-list" aria-label="Lista de tarefas">
-            <!-- As tarefas serão inseridas pelo JavaScript -->
-          </ul>
-
-          <p id="empty-message" class="empty-message">
-            Nenhuma tarefa adicionada ainda.
-          </p>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="container">
-        <p>Projeto Lista de Tarefas</p>
-      </div>
-    </footer>
-
-    <script type="module" src="/src/main.js"></script>
   </body>
 </html>
