@@ -19,7 +19,6 @@ function loadTasks() {
 try {
 const savedTasks = localStorage.getItem(STORAGE_KEY);
 
-```
 if (!savedTasks) {
   return [];
 }
@@ -37,7 +36,6 @@ return parsedTasks.filter(
     typeof task.text === 'string' &&
     typeof task.completed === 'boolean'
 );
-```
 
 } catch {
 return [];
@@ -116,10 +114,8 @@ function updateFilterButtons() {
 filterButtons.forEach((button) => {
 const isActive = button.dataset.filter === currentFilter;
 
-```
 button.classList.toggle('active', isActive);
 button.setAttribute('aria-pressed', String(isActive));
-```
 
 });
 }
@@ -149,10 +145,8 @@ checkbox.setAttribute(
 checkbox.addEventListener('change', () => {
 task.completed = checkbox.checked;
 
-```
 saveTasks();
 renderTasks();
-```
 
 });
 
