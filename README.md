@@ -85,7 +85,6 @@ npm run preview
 
 ```text
 lista-tarefas/
-├── public/
 ├── src/
 │   ├── main.js
 │   └── style.css
